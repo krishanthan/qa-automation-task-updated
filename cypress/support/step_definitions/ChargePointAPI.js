@@ -1,6 +1,7 @@
 import { Given, Then, When } from "@badeball/cypress-cucumber-preprocessor";
 import APIfunction from "../Utils/APIfunction";
 import { beforeEach } from "mocha";
+import cypress from "cypress";
 
 let PostResponse;
 let GetResponse;
@@ -10,7 +11,7 @@ const API = new APIfunction();
 
 
 Given("The API is working {string}", function (endpoint) {
-    API.GetRequest(endpoint).its('status').should('eq', 200);
+    API.GetRequest(cypress.env("baseAPIURL")+endpoint).its('status').should('eq', 200);
 })
 
 
