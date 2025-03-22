@@ -16,7 +16,7 @@ Given("The API is working {string}", function (endpoint) {
 
 
 When("I send a POST request to {string} with SerialNumbers", (endpoint) => {
-    API.PostRequest(endpoint, {
+    API.PostRequest(cypress.env("baseAPIURL")+endpoint, {
         "id": "66bf9a8b-96f5-44c5-a062-971d875f6b05",
         "serialNumber": "Faf Du plessis"
     }).as("PostResponse").then((APIResponse) => {
