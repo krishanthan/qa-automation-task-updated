@@ -21,7 +21,7 @@ class APIfunction {
     DeleteRequest(endpoint,) {
         return cy.request({
             method: "DELETE",
-            url: (Cypress.env("baseUrl") + endpoint),
+            url: endpoint,
             body
 
         });

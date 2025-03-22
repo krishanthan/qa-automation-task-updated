@@ -22,7 +22,7 @@
     "webpack-cli": "^6.0.1"
   },
   "@badeball/cypress-cucumber-preprocessor": {
-  "nonGlobalStepDefinitions": false,
-  "stepDefinitions": "cypress/support/step_definitions/*.js"
-}
+    "nonGlobalStepDefinitions": false,
+    "stepDefinitions": "cypress/support/step_definitions/*.js"
+  }
 }

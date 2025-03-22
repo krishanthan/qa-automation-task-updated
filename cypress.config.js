@@ -30,7 +30,7 @@ module.exports = defineConfig({
     setupNodeEvents,
     specPattern: "cypress/e2e/Web/Features/*.feature",
     stepDefinitions: "cypress/support/step_definitions/*.js",
-    baseUrl: "http://localhost:3001"
+    
   
    
 

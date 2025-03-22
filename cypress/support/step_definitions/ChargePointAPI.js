@@ -1,27 +1,45 @@
 import { Given, Then, When } from "@badeball/cypress-cucumber-preprocessor";
 import APIfunction from "../Utils/APIfunction";
 import { beforeEach } from "mocha";
-import cypress from "cypress";
+
 
 let PostResponse;
 let GetResponse;
+let data;
+
+const API = new APIfunction()
+
+beforeEach(function () {
+    cy.fixture('URL.json').then(function (urls) {
+        cy.wrap(urls.baseAPIURL).then((value) => {
+            cy.wrap(value).as("APIURL")
+        
+        })
 
 
-const API = new APIfunction();
-
+    })
+})
 
 Given("The API is working {string}", function (endpoint) {
-    API.GetRequest(endpoint).its('status').should('eq', 200);
+    cy.get("@APIURL").then((URL)=>{
+        cy.log(URL)
+        API.GetRequest(URL+endpoint).its('status').should('eq', 200);
+
+    })
+
+
 })
 
 
 When("I send a POST request to {string} with SerialNumbers", (endpoint) => {
-    API.PostRequest(cypress.env("baseAPIURL")+endpoint, {
+    cy.get("@APIURL").then((URL)=>{
+    API.PostRequest(URL+endpoint, {
         "id": "66bf9a8b-96f5-44c5-a062-971d875f6b05",
         "serialNumber": "Faf Du plessis"
     }).as("PostResponse").then((APIResponse) => {
         PostResponse = APIResponse
     })
+})
 
 })
 
@@ -39,12 +57,16 @@ Then("The response should contain SerialNumber", () => {
 
 
 When("I send a invalid POST request to {string} with SerialNumbers", (endpoint) => {
-    API.PostRequest(endpoint, {
+   
+    cy.get("@APIURL").then((URL)=>{
+    API.PostRequest(URL+endpoint, {
         "iddsadadsad": "66bf9a8b-96f5-44c5-a062-971d875f6b05",
         "serialNumber": "Aiden Markam"
     }).as("PostResponse").then((APIResponse) => {
         PostResponse = APIResponse
     })
+
+})
 
 })
 
@@ -61,28 +83,32 @@ Then("The response not contain the following details", () => {
 })
 
 Given("I send a GET request to {string}", (endpoint) => {
-
-    API.GetRequest(endpoint).as("GetAPIResponse").then((GetAPIResponse)=>{
+    cy.get("@APIURL").then((URL)=>{
+    API.GetRequest(URL+endpoint).as("GetAPIResponse").then((GetAPIResponse) => {
         GetResponse = GetAPIResponse
     })
 
 })
 
+})
+
 Then("the get response status should be {int}", (statusCode) => {
-    cy.log(GetResponse.status).then(()=>{
+    cy.log(GetResponse.status).then(() => {
 
         expect(GetResponse.status).to.equal(statusCode)
 
     })
 
-    
+
 })
 
 Then("The Get response of {string} contains the following details", (endpoint) => {
-    API.GetRequest(endpoint).as("APIResponse").then((APIResponse) => {
+    cy.get("@APIURL").then((URL)=>{
+    API.GetRequest(URL+endpoint).as("APIResponse").then((APIResponse) => {
         expect(GetResponse.body).to.have.property("id", "66bf9a8b-96f5-44c5-a062-971d875f6b05")
         expect(GetResponse.body).to.have.property("serialNumber", "Faf Du plessis")
 
     })
+})
 })
 

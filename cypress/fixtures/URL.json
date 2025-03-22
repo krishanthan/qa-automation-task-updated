@@ -1,0 +1,5 @@
+
+    {
+        "baseAPIURL": "http://localhost:3001",
+        "baseWebURL": "http://localhost:3000"
+    }
