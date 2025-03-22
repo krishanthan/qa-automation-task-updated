@@ -8,7 +8,7 @@ Feature: Charge Point API
 
     Scenario:020 Check Invalid request (BUG-01)
         #The invalid post request send successfully
-        
+
         Given The API is working "/charge-point"
         When I send a invalid POST request to "/charge-point" with SerialNumbers
         Then the invalid response status should be 400
@@ -20,5 +20,8 @@ Feature: Charge Point API
         Given I send a GET request to "/charge-point"
         Then the get response status should be 200
         Then The Get response of "/charge-point" contains the following details
+
+    Scenario: 040 Verify the DELETE response for user data
+
 
 
