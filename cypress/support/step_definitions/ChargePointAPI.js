@@ -11,7 +11,7 @@ const API = new APIfunction();
 
 
 Given("The API is working {string}", function (endpoint) {
-    API.GetRequest(cypress.env("baseAPIURL")+endpoint).its('status').should('eq', 200);
+    API.GetRequest(endpoint).its('status').should('eq', 200);
 })
 
 
