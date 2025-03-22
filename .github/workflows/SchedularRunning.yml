@@ -25,7 +25,7 @@ jobs:
     
     - name: Run tests
       run: |
-        npx cypress run --spec "cypress/e2e/Web/Features/*.feature
+        npx cypress run --spec "cypress/e2e/Web/Features/*.feature"
     
     - name: Build project (optional)
       run: |
