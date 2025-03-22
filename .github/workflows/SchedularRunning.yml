@@ -30,11 +30,7 @@ jobs:
     - name: Wait for Web server to be ready
       run:  |
         npx wait-on http://localhost:3000
-
-    - name: Wait for API server to be ready
-      run:  |
-        npx wait-on http://localhost:3001
-    
+ 
     - name: Run tests
       run: |
         npx cypress run --spec "cypress/e2e/Web/Features/ChargePoint.feature,cypress/e2e/Web/Features/ChargePointAPI.feature"
