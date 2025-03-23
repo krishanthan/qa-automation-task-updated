@@ -34,11 +34,11 @@ jobs:
       run: |
         npx cypress run --spec "cypress/e2e/Features/*.feature"
     
-    - name: Build project (optional)
+    - name: Build project
       run: |
         npm run build
     
-    - name: Deploy (optional)
+    - name: Deploy
       run: |
         # Deploy to your server or cloud platform here
         echo "Deploying project..."
