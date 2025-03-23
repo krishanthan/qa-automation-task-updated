@@ -32,7 +32,7 @@ jobs:
  
     - name: Run tests
       run: |
-        npx cypress run --spec "cypress/e2e/Web/Features/ChargePoint.feature,cypress/e2e/Web/Features/ChargePointAPI.feature"
+        npx cypress run --spec "cypress/e2e/Features/*.feature"
     
     - name: Build project (optional)
       run: |
