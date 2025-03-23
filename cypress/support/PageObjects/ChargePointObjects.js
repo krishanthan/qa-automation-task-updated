@@ -8,7 +8,7 @@ class chargepoint {
         SerialNumberAddbtn: ".addButton",
         SerialNumberList: "ul[class=list] li div",
         DeleteButton: ".list-button",
-        SerialNumberVal: "li div"
+        SerialNumberVal: "ul[class=list]"
         
 
 
@@ -64,7 +64,7 @@ class chargepoint {
     }
 
     CheckListEmpty(SerialNumber) {
-        return cy.get(this.locators.SerialNumberList)
+        return cy.get(this.locators.SerialNumberVal)
         
         
    
