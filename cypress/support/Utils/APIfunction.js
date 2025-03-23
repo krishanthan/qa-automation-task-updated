@@ -22,7 +22,7 @@ class APIfunction {
         return cy.request({
             method: "DELETE",
             url: endpoint,
-            body
+            
 
         });
 

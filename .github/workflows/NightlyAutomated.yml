@@ -1,0 +1,46 @@
+name: Nightly Automated
+
+on:
+  schedule:
+    - cron: '0 6 * * *'  # Runs at 6 AM UTC, which is 8 AM CEST every day
+  workflow_dispatch:  # Allows you to manually trigger the workflow
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    
+    - name: Set up Node.js (example for Node.js project)
+      uses: actions/setup-node@v2
+      with:
+        node-version: '20'
+    
+    - name: Install dependencies
+      run: |
+        npm install
+
+    - name: Start the server
+      run: | 
+        npm start &
+        
+    - name: Wait for Web server to be ready
+      run:  |
+        npx wait-on http://localhost:3000
+ 
+    - name: Run tests
+      run: |
+        npx cypress run --spec "cypress/e2e/Web/Features/ChargePoint.feature,cypress/e2e/Web/Features/ChargePointAPI.feature"
+    
+    - name: Build project (optional)
+      run: |
+        npm run build
+    
+    - name: Deploy (optional)
+      run: |
+        # Deploy to your server or cloud platform here
+        echo "Deploying project..."
+
+  

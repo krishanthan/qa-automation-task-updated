@@ -1,6 +1,5 @@
-name: CI/CD Pipeline
+name: Automated Testing
 
-# Trigger the pipeline on push to the main branch
 on:
   push:
     branches:
@@ -17,7 +16,7 @@ jobs:
     - name: Set up Node.js (example for Node.js project)
       uses: actions/setup-node@v2
       with:
-        node-version: '20'  # Adjust version as needed
+        node-version: '20'
     
     - name: Install dependencies
       run: |
