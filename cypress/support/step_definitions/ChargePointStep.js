@@ -1,5 +1,5 @@
 import { Given, Then, When } from "@badeball/cypress-cucumber-preprocessor";
-import ChargePointObjects from "../../support/PageObjects/ChargePointObjects"
+import ChargePointObjects from "../PageObjects/ChargePointObjects"
 
 const ChargePoint = new ChargePointObjects();
 
@@ -65,17 +65,20 @@ Then("Serial numbers are present in the list {string}", function (SerialNumber) 
 })
 
 When("The User Delete the Serial Number of {string}", function (SerialNumber) {
-    ChargePoint.DeleteSerialNumber(SerialNumber).contains(SerialNumber).then(($el)=>{
-        if($el.length>0){
-            cy.wrap($el).next().click()
-            
+    ChargePoint.DeleteSerialNumber(SerialNumber).contains(SerialNumber).then(($el) => {
+        if ($el.length > 0) {
+            cy.wrap($el).next().click().as("DelSerialNum")
+
         }
     })
 
 })
 Then("The Serial Numbers are not appear in list {string}", function (SerialNumbers) {
-    ChargePoint.CheckListEmpty().should("not.exist")
+    ChargePoint.CheckListEmpty().should("not.contain",SerialNumbers)
+
+
 })
+
 
 
 Given("The User lands on the Charge Point Installation Form successfully", function () {

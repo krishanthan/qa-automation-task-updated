@@ -64,7 +64,7 @@ class chargepoint {
     }
 
     CheckListEmpty(SerialNumber) {
-        return cy.get(this.locators.SerialNumberList).find(this.locators.SerialNumberVal)
+        return cy.get(this.locators.SerialNumberList)
         
         
    

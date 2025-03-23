@@ -1,5 +1,5 @@
 import { Given, Then, When } from "@badeball/cypress-cucumber-preprocessor";
-import APIfunction from "../Utils/APIfunction";
+import APIfunction from "../Utility/APIfunction";
 import { beforeEach } from "mocha";
 import chargepoint from "../PageObjects/ChargePointObjects";
 
