@@ -15,7 +15,7 @@ Feature: Charge Point API
         And  The POST response should contain id "1234567" and SerialNumber "PVR-039-2910" as following
         And  The POST response should contain id "5378643" and SerialNumber "RMC-920-2389" as following
 
-    Scenario Outline: 021 Check POST data are available (Web)
+    Scenario Outline: 021 Check POST data are available (Web Testing)
         Given I Navigate to URL
         Then The User Land on the Charge Point Installation Form
         Then Serial numbers are present in the list "<SerialNumber>"
@@ -25,9 +25,8 @@ Feature: Charge Point API
             | RMC-920-2389 |
 
 
-    Scenario:030 Check Invalid request (BUG-01)
-        #The invalid post request send successfully
-
+    Scenario:030 Check whether POST invalid Request (BUG-01)
+        #The invalid Request code
         Given I navigate the API Path "/charge-point"
         When I send a invalid POST request to "/charge-point" with ID and SerialNumbers as following
             | iddsa   | serialNumberdsadsad  |
@@ -36,7 +35,7 @@ Feature: Charge Point API
         Then the invalid POST response status should be 400
 
 
-    Scenario: 040 Check POST datas are available through GET Request
+    Scenario: 040 Check POST data are available through GET Request
         Given I navigate the API Path "/charge-point"
         Given I recieved the GET Status code as 200
         Then The GET response should contain id "1234567" and SerialNumber "PVR-039-2910" as following
@@ -51,7 +50,7 @@ Feature: Charge Point API
             | 1234567 |
             | 5378643 |
 
-    Scenario Outline: Verify Serial numbers are not appear (Web)
+    Scenario Outline: Verify Serial numbers are not appear (Web Testing)
         Given I Navigate to URL
         Given The User lands on the Charge Point Installation Form successfully
         Then The Serial Numbers are not appear in list "<Serial Number>"

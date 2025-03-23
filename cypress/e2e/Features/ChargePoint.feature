@@ -25,12 +25,12 @@ Feature: Charge Point Installation -Web
             | 498-VCS-391   |
             | 739-HVI-390   |
 
-    Scenario: 030 Verify GET request include the serial number (API)
+    Scenario: 030 Verify GET request include the serial number (API Testing)
         Given I navigate the API Path "/charge-point"
         Given I recieved the GET Status code as 200
         Then The GET response should contains SerialNumber "492-VJC-204"
 
-    Scenario: 040 Verify DELETE request for serial number (API)
+    Scenario: 040 Verify DELETE request for serial number (API Testing)
         Given I navigate the API Path "/charge-point"
         Given The GET response should contains SerialNumber "492-VJC-204"
         When  I Send DELETE request to "/charge-point/" to specific Serial Number "492-VJC-204"
