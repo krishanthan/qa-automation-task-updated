@@ -32,7 +32,7 @@ Feature: Charge Point API
         Given I recieved the GET Status code as 200
         Then The GET response should contain id "1234567" and SerialNumber "PVR-039-2910" as following
 
-    Scenario Outline: 050 Verify the DELETE response for user data
+    Scenario Outline: 050 Verify the DELETE response for Serial Number
         Given I navigate the API Path "/charge-point"
         When I Send DELETE request to "/charge-point/" to specific id "<id>"
         Then The DELETE response status should be 204

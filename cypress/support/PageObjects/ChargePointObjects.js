@@ -9,35 +9,25 @@ class chargepoint {
         SerialNumberList: "ul[class=list] li div",
         DeleteButton: ".list-button",
         SerialNumberVal: "li div"
+        
 
 
 
     }
 
-    NavigateChargePoint() {
-        cy.visit("http://localhost:3000/")
+    NavigateChargePoint(URL) {
+        cy.visit(URL)
     }
 
     Textappear() {
-        cy.get(this.locators.ChargePointFormText).should("have.text", "Charge Point Installation Form")
+        return cy.get(this.locators.ChargePointFormText)
     }
 
     TypeSerialNumber(SerialNumber) {
-        if (cy.get(this.locators.SerialNumberTextBox).should("be.visible")) {
-            cy.get(this.locators.SerialNumberTextBox).type(SerialNumber).then((Number) => {
-
-                if (Number.val() === SerialNumber) {
-                    expect(SerialNumber).to.equal(Number.val());
-
-                }
-
-                else {
-                    cy.log("The Value is incorrect in textbox")
-                }
-
-            })
+     if (cy.get(this.locators.SerialNumberTextBox).should("be.visible")) 
+            {
+           return cy.get(this.locators.SerialNumberTextBox).type(SerialNumber)
         }
-
         else {
             throw new Error('The TextBox element is not present');
         }
@@ -47,7 +37,6 @@ class chargepoint {
     ClickAddButton() {
         if (cy.get(this.locators.SerialNumberAddbtn).should("be.visible")) {
             cy.get(this.locators.SerialNumberAddbtn).click()
-            cy.get(this.locators.SerialNumberTextBox).invoke("val").should("be.empty")
         }
         else {
             throw new Error('The Add button element is not present');
@@ -56,44 +45,29 @@ class chargepoint {
 
     }
 
+    TextBoxValue()
+    {
+       return cy.get(this.locators.SerialNumberTextBox)
+
+    }
+
     CheckSerialNumberinList(SerialNumber) {
 
-        cy.get(this.locators.SerialNumberList).each(($el, index, $list) => {
-
-
-            if ($el.text() === SerialNumber) {
-
-                cy.log("The Serial Number is present in List")
-            }
-
-        })
-
-
+       return cy.get(this.locators.SerialNumberList)
+       
 
     }
 
     DeleteSerialNumber(SerialNumber) {
-        cy.get(this.locators.SerialNumberList).each(($el, index, $list) => {
-
-            if ($el.text() === SerialNumber) {
-                cy.wrap($el).next().click();
-                cy.wait(1000)
-
-            }
-
-        })
+       return cy.get(this.locators.SerialNumberList)
+        
     }
 
     CheckListEmpty(SerialNumber) {
-        cy.get(this.locators.SerialNumberList).each(($el, index, $list) => {
-
-                if($el.text()!=SerialNumber)
-                {
-                    expect(true).to.be.true;
-                }
-
-        })
-
+        return cy.get(this.locators.SerialNumberList).find(this.locators.SerialNumberVal)
+        
+        
+   
     }
 
 

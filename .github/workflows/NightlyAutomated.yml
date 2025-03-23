@@ -2,8 +2,8 @@ name: Nightly Automated
 
 on:
   schedule:
-    - cron: '0 6 * * *'  # Runs at 6 AM UTC, which is 8 AM CEST every day
-  workflow_dispatch:  # Allows you to manually trigger the workflow
+    - cron: '0 6 * * *'  
+  workflow_dispatch:  
 
 jobs:
   build:

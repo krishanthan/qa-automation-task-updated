@@ -76,9 +76,25 @@ When("I Send DELETE request to {string} to specific id {string}", function (endp
     })
 })
 
+When("I Send DELETE request to {string} to specific Serial Number {string}", (endpoint,SerialNumber) => {
+    cy.get("@GetRes").then((GetRes) => {
+        const ID = GetRes.body.find((item) => item.serialNumber === SerialNumber).id
+        cy.wrap(ID).then(() => {
+           cy.get("@APIURL").then((URL)=>{
+            API.DeleteRequest(URL+ endpoint+ ID).as("DelResponseByID")
+
+
+           })
+
+        })
+
+
+
+    })
+})
+
 
 //#endregion
-
 
 
 //#region Then
@@ -99,7 +115,7 @@ Then("the POST response status should be {int}", function (StatusCode) {
 
 Then("The POST response should contain id {string} and SerialNumber {string} as following", function (id, serialnumber) {
     cy.get("@PostRes").then((PostRes) => {
-            if(PostRes.body.id === id && PostRes.body.serialNumber === serialnumber) {
+        if (PostRes.body.id === id && PostRes.body.serialNumber === serialnumber) {
             expect(PostRes.body.id).to.equal(id);
             expect(PostRes.body.serialNumber).to.equal(serialnumber);
 
@@ -151,6 +167,16 @@ Then("The DELETE response status should be {int}", function (int) {
 
 })
 
+Then("I Recieved DELETE response status should be {int}", function (int) {
+    cy.get("@DelResponseByID").then((DeleteResID) => {
+        expect(DeleteResID.status).eq(204);
+
+    })
+
+})
+
+
+
 Then("The response not contain the following details", () => {
     cy.get("@GetRes").then((GetRes) => {
         GetRes.body.forEach((SelectProp) => {
@@ -158,6 +184,22 @@ Then("The response not contain the following details", () => {
 
         })
     })
+
+
+})
+
+Then("The GET response should contains SerialNumber {string}", (SerialNumber) => {
+
+    cy.get("@GetRes").then((GetRes) => {
+        GetRes.body.forEach((SelectProp) => {
+            if (SelectProp.serialNumber === SerialNumber) {
+                expect(SelectProp.serialNumber).to.equal(SerialNumber);
+
+            }
+
+        })
+    })
+
 
 
 })

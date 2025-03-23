@@ -3,35 +3,85 @@ import ChargePointObjects from "../../support/PageObjects/ChargePointObjects"
 
 const ChargePoint = new ChargePointObjects();
 
-Given("Navigate to URL", function () {
-    ChargePoint.NavigateChargePoint()
+beforeEach(function () {
+    cy.fixture('URL.json').then(function (urls) {
+        cy.wrap(urls.baseWebURL).then((value) => {
+            cy.wrap(value).as("Weburl")
+
+        })
+
+    })
+})
+
+Given("I Navigate to URL", function () {
+    cy.get("@Weburl").then(function (WebURL) {
+
+        ChargePoint.NavigateChargePoint(WebURL)
+
+    })
 
 });
 
 Then("The User Land on the Charge Point Installation Form", function () {
 
-    ChargePoint.Textappear()
+    ChargePoint.Textappear().should("have.text", "Charge Point Installation Form")
 })
 
-When("User add the Serial Number {string}", function (SerialNumber){
-    ChargePoint.TypeSerialNumber(SerialNumber)
+When("The User add the Serial Number {string}", function (SerialNumber) {
+    ChargePoint.TypeSerialNumber(SerialNumber).then((Number) => {
+        if (Number.val() === SerialNumber) {
+            expect(SerialNumber).to.equal(Number.val());
+        }
+
+        else {
+            expect(SerialNumber).to.not.equal(Number.val())
+        }
+
+    })
 
 })
 
-When ("User Click the Add Button",function(){
+When("The User Click the Add Button", function () {
     ChargePoint.ClickAddButton()
 })
 
-Then("Serial number present in list {string}",function(SerialNumber){
-    ChargePoint.CheckSerialNumberinList()
+Then("The Textbox value should be empty", () => {
+    ChargePoint.TextBoxValue().invoke("val").should("be.empty")
 })
 
-When ("User Delete the Serial Number {string}",function(SerialNumber){
-    ChargePoint.DeleteSerialNumber(SerialNumber)
-    
+Then("Serial numbers are present in the list {string}", function (SerialNumber) {
+    ChargePoint.CheckSerialNumberinList().then(($list) => {
+        expect($list.length).to.be.greaterThan(0)
+        $list.each((el, index) => {
+            const text = Cypress.$(el).text().trim()
+            if (text === SerialNumber) {
+                expect(text).to.equal(SerialNumber)
+            }
+
+        })
+
+
+    })
 })
-Then ("Serial Number not appear in list {string}",function(){
-    ChargePoint.CheckListEmpty()
+
+When("The User Delete the Serial Number of {string}", function (SerialNumber) {
+    ChargePoint.DeleteSerialNumber(SerialNumber).contains(SerialNumber).then(($el)=>{
+        if($el.length>0){
+            cy.wrap($el).next().click()
+            
+        }
+    })
+
+})
+Then("The Serial Numbers are not appear in list {string}", function (SerialNumbers) {
+    ChargePoint.CheckListEmpty().should("not.exist")
+})
+
+
+Given("The User lands on the Charge Point Installation Form successfully", function () {
+    ChargePoint.Textappear().should("have.text", "Charge Point Installation Form")
+
+
 })
 
 
