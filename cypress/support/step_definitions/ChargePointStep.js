@@ -55,7 +55,7 @@ Then("Serial numbers are present in the list {string}", function (SerialNumber) 
         $list.each((el, index) => {
             const text = Cypress.$(el).text().trim()
             if (text === SerialNumber) {
-                expect(text).to.equal(SerialNumber)
+                expect(teSerialNumberxt).to.equal(text)
             }
 
         })

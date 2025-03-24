@@ -107,7 +107,7 @@ Then("its not contains any following data", function () {
 
 Then("the POST response status should be {int}", function (StatusCode) {
     cy.get("@PostRes").then((PostRes) => {
-        expect(PostRes.status).to.eq(201)
+        expect(StatusCode).to.eq(PostRes.status)
 
     })
 
@@ -116,8 +116,8 @@ Then("the POST response status should be {int}", function (StatusCode) {
 Then("The POST response should contain id {string} and SerialNumber {string} as following", function (id, serialnumber) {
     cy.get("@PostRes").then((PostRes) => {
         if (PostRes.body.id === id && PostRes.body.serialNumber === serialnumber) {
-            expect(PostRes.body.id).to.equal(id);
-            expect(PostRes.body.serialNumber).to.equal(serialnumber);
+            expect(id).to.equal(PostRes.body.id);
+            expect(serialnumber).to.equal(PostRes.body.serialNumber);
 
         }
 
@@ -131,8 +131,8 @@ Then("The GET response should contain id {string} and SerialNumber {string} as f
     cy.get("@GetRes").then((GetRes) => {
         GetRes.body.forEach((SelectProp) => {
             if (SelectProp.id === id && SelectProp.serialNumber === serialnumber) {
-                expect(SelectProp.id).to.equal(id);
-                expect(SelectProp.serialNumber).to.equal(serialnumber);
+                expect(id).to.equal(SelectProp.id);
+                expect(serialnumber).to.equal(SelectProp.serialNumber);
 
             }
 
@@ -145,7 +145,7 @@ Then("The GET response should contain id {string} and SerialNumber {string} as f
 
 Then("the invalid POST response status should be {int}", (StatusCode) => {
     cy.get("@InvalidPostRes").then((invalidPostResponse) => {
-        expect(invalidPostResponse.status).eq(StatusCode)
+        expect(StatusCode).eq(invalidPostResponse.status)
 
     })
 
@@ -159,17 +159,17 @@ Then("The Invalid response not contain the following details", () => {
 })
 
 
-Then("The DELETE response status should be {int}", function (int) {
+Then("The DELETE response status should be {int}", function (StatusCode) {
     cy.get("@DeleteRes").then((DeleteRes) => {
-        expect(DeleteRes.status).eq(204);
+        expect(StatusCode).eq(DeleteRes.status);
 
     })
 
 })
 
-Then("I Recieved DELETE response status should be {int}", function (int) {
+Then("I Recieved DELETE response status should be {int}", function (StatusCode) {
     cy.get("@DelResponseByID").then((DeleteResID) => {
-        expect(DeleteResID.status).eq(204);
+        expect(StatusCode).eq(DeleteResID.status);
 
     })
 
@@ -193,7 +193,7 @@ Then("The GET response should contains SerialNumber {string}", (SerialNumber) =>
     cy.get("@GetRes").then((GetRes) => {
         GetRes.body.forEach((SelectProp) => {
             if (SelectProp.serialNumber === SerialNumber) {
-                expect(SelectProp.serialNumber).to.equal(SerialNumber);
+                expect(SerialNumber).to.equal(SelectProp.serialNumber);
 
             }
 
