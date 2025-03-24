@@ -2,7 +2,14 @@ name: Nightly Automated
 
 on:
   schedule:
-    - cron: '0 6 * * *'  
+    - cron:  "*/30 * * * *" 
+      displayName: Nightly Automated
+      branches:
+        include:
+        - main
+      always: true
+  trigger:
+    - '*' 
   workflow_dispatch:  
 
 jobs:
