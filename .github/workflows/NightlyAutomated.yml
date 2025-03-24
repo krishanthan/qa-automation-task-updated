@@ -3,13 +3,6 @@ name: Nightly Automated
 on:
   schedule:
     - cron:  "*/30 * * * *" 
-      displayName: Nightly Automated
-      branches:
-        include:
-        - main
-      always: true
-  trigger:
-    - '*' 
   workflow_dispatch:  
 
 jobs:
@@ -20,7 +13,7 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
     
-    - name: Set up Node.js (example for Node.js project)
+    - name: Set up Node.js
       uses: actions/setup-node@v2
       with:
         node-version: '20'
