@@ -1,7 +1,7 @@
 import { Given, Then, When } from "@badeball/cypress-cucumber-preprocessor";
-import APIfunction from "../Utility/APIfunction";
+import APIfunction from "../../support/Utility/APIfunction";
 import { beforeEach } from "mocha";
-import chargepoint from "../PageObjects/ChargePointObjects";
+import chargepoint from "../../support/PageObjects/ChargePointObjects";
 
 
 const API = new APIfunction()
@@ -76,15 +76,15 @@ When("I Send DELETE request to {string} to specific id {string}", function (endp
     })
 })
 
-When("I Send DELETE request to {string} to specific Serial Number {string}", (endpoint,SerialNumber) => {
+When("I Send DELETE request to {string} to specific Serial Number {string}", (endpoint, SerialNumber) => {
     cy.get("@GetRes").then((GetRes) => {
         const ID = GetRes.body.find((item) => item.serialNumber === SerialNumber).id
         cy.wrap(ID).then(() => {
-           cy.get("@APIURL").then((URL)=>{
-            API.DeleteRequest(URL+ endpoint+ ID).as("DelResponseByID")
+            cy.get("@APIURL").then((URL) => {
+                API.DeleteRequest(URL + endpoint + ID).as("DelResponseByID")
 
 
-           })
+            })
 
         })
 
@@ -195,6 +195,13 @@ Then("The GET response should contains SerialNumber {string}", (SerialNumber) =>
     })
 
 
+
+})
+
+after(function () {
+
+    cy.clearCookies();
+    cy.clearLocalStorage();
 
 })
 

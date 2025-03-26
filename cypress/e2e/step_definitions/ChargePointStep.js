@@ -1,5 +1,5 @@
 import { Given, Then, When } from "@badeball/cypress-cucumber-preprocessor";
-import ChargePointObjects from "../PageObjects/ChargePointObjects"
+import ChargePointObjects from "../../support/PageObjects/ChargePointObjects"
 
 const ChargePoint = new ChargePointObjects();
 
@@ -84,6 +84,14 @@ Then("The Serial Numbers are not appear in list {string}", function (SerialNumbe
 Given("The User lands on the Charge Point Installation Form successfully", function () {
     ChargePoint.Textappear().should("have.text", "Charge Point Installation Form")
 
+
+})
+
+
+afterEach(() => {
+
+    cy.clearCookies();
+    cy.clearLocalStorage();
 
 })
 
