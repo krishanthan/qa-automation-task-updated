@@ -19,7 +19,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 701000000
+              "duration": 721000000
             }
           },
           {
@@ -32,7 +32,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 16000000
+              "duration": 15000000
             }
           },
           {
@@ -45,7 +45,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 353000000
+              "duration": 349000000
             }
           },
           {
@@ -58,7 +58,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 102000000
+              "duration": 101000000
             }
           },
           {
@@ -71,7 +71,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 17000000
+              "duration": 11000000
             }
           },
           {
@@ -84,7 +84,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 12000000
+              "duration": 11000000
             }
           }
         ],
@@ -108,7 +108,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 66000000
+              "duration": 62000000
             }
           },
           {
@@ -121,7 +121,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 15000000
+              "duration": 17000000
             }
           },
           {
@@ -134,7 +134,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 303000000
+              "duration": 308000000
             }
           },
           {
@@ -147,7 +147,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 100000000
+              "duration": 104000000
             }
           },
           {
@@ -160,7 +160,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 17000000
+              "duration": 22000000
             }
           },
           {
@@ -173,7 +173,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 9000000
+              "duration": 10000000
             }
           }
         ],
@@ -197,7 +197,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 49000000
+              "duration": 45000000
             }
           },
           {
@@ -210,7 +210,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 16000000
+              "duration": 14000000
             }
           },
           {
@@ -223,7 +223,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 293000000
+              "duration": 307000000
             }
           },
           {
@@ -236,7 +236,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 100000000
+              "duration": 99000000
             }
           },
           {
@@ -249,7 +249,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 22000000
+              "duration": 11000000
             }
           },
           {
@@ -262,7 +262,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 11000000
+              "duration": 10000000
             }
           }
         ],
@@ -274,69 +274,6 @@
         "id": "charge-point-installation--web;020-verify-whether-user-could-delete-the-serial-number",
         "keyword": "Scenario Outline",
         "line": 25,
-        "name": "020 Verify whether user could delete the serial number",
-        "steps": [
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 18,
-            "name": "I Navigate to URL",
-            "match": {
-              "location": "cypress/e2e/step_definitions/ChargePointStep.js:16"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 46000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 19,
-            "name": "The User lands on the Charge Point Installation Form successfully",
-            "match": {
-              "location": "cypress/e2e/step_definitions/ChargePointStep.js:84"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 16000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 20,
-            "name": "The User Delete the Serial Number of \"498-VCS-391\"",
-            "match": {
-              "location": "cypress/e2e/step_definitions/ChargePointStep.js:67"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 102000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 21,
-            "name": "The Serial Numbers are not appear in list \"498-VCS-391\"",
-            "match": {
-              "location": "cypress/e2e/step_definitions/ChargePointStep.js:76"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 15000000
-            }
-          }
-        ],
-        "tags": [],
-        "type": "scenario"
-      },
-      {
-        "description": "",
-        "id": "charge-point-installation--web;020-verify-whether-user-could-delete-the-serial-number",
-        "keyword": "Scenario Outline",
-        "line": 26,
         "name": "020 Verify whether user could delete the serial number",
         "steps": [
           {
@@ -362,7 +299,70 @@
             },
             "result": {
               "status": "passed",
-              "duration": 15000000
+              "duration": 14000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 20,
+            "name": "The User Delete the Serial Number of \"498-VCS-391\"",
+            "match": {
+              "location": "cypress/e2e/step_definitions/ChargePointStep.js:67"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 100000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 21,
+            "name": "The Serial Numbers are not appear in list \"498-VCS-391\"",
+            "match": {
+              "location": "cypress/e2e/step_definitions/ChargePointStep.js:76"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 23000000
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "charge-point-installation--web;020-verify-whether-user-could-delete-the-serial-number",
+        "keyword": "Scenario Outline",
+        "line": 26,
+        "name": "020 Verify whether user could delete the serial number",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 18,
+            "name": "I Navigate to URL",
+            "match": {
+              "location": "cypress/e2e/step_definitions/ChargePointStep.js:16"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 47000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 19,
+            "name": "The User lands on the Charge Point Installation Form successfully",
+            "match": {
+              "location": "cypress/e2e/step_definitions/ChargePointStep.js:84"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 19000000
             }
           },
           {
@@ -375,7 +375,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 101000000
+              "duration": 106000000
             }
           },
           {
@@ -388,7 +388,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 10000000
+              "duration": 12000000
             }
           }
         ],
@@ -412,7 +412,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 17000000
+              "duration": 14000000
             }
           },
           {
@@ -425,7 +425,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 10000000
+              "duration": 7000000
             }
           },
           {
@@ -438,7 +438,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 9000000
+              "duration": 8000000
             }
           }
         ],
@@ -462,7 +462,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 17000000
+              "duration": 13000000
             }
           },
           {
@@ -488,7 +488,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 13000000
+              "duration": 12000000
             }
           },
           {
@@ -536,7 +536,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 16000000
+              "duration": 18000000
             }
           },
           {
@@ -562,7 +562,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 8000000
+              "duration": 9000000
             }
           }
         ],
@@ -586,7 +586,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 12000000
+              "duration": 14000000
             }
           },
           {
@@ -622,7 +622,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 19000000
+              "duration": 21000000
             }
           },
           {
@@ -648,7 +648,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 8000000
+              "duration": 7000000
             }
           },
           {
@@ -661,7 +661,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 8000000
+              "duration": 10000000
             }
           }
         ],
@@ -685,7 +685,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 556000000
+              "duration": 232000000
             }
           },
           {
@@ -698,7 +698,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 14000000
+              "duration": 17000000
             }
           },
           {
@@ -711,7 +711,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 9000000
+              "duration": 13000000
             }
           }
         ],
@@ -735,7 +735,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 51000000
+              "duration": 62000000
             }
           },
           {
@@ -748,7 +748,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 11000000
+              "duration": 13000000
             }
           },
           {
@@ -761,7 +761,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 9000000
+              "duration": 10000000
             }
           }
         ],
@@ -785,7 +785,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 16000000
+              "duration": 14000000
             }
           },
           {
@@ -821,7 +821,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 20000000
+              "duration": 23000000
             }
           },
           {
@@ -834,7 +834,7 @@
             },
             "result": {
               "status": "failed",
-              "duration": 249000000,
+              "duration": 467000000,
               "error_message": "expected 400 to equal 201"
             },
             "embeddings": [
@@ -865,7 +865,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 18000000
+              "duration": 17000000
             }
           },
           {
@@ -891,7 +891,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 11000000
+              "duration": 10000000
             }
           }
         ],
@@ -915,7 +915,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 15000000
+              "duration": 14000000
             }
           },
           {
@@ -923,6 +923,56 @@
             "keyword": "When ",
             "line": 45,
             "name": "I Send DELETE request to \"/charge-point/\" to specific id \"1234567\"",
+            "match": {
+              "location": "cypress/e2e/step_definitions/ChargePointAPI.js:73"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 14000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 46,
+            "name": "The DELETE response status should be 204",
+            "match": {
+              "location": "cypress/e2e/step_definitions/ChargePointAPI.js:156"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 9000000
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "charge-point-api;050-verify-the-delete-response-for-serial-number",
+        "keyword": "Scenario Outline",
+        "line": 51,
+        "name": "050 Verify the DELETE response for Serial Number",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 44,
+            "name": "I navigate the API Path \"/charge-point\"",
+            "match": {
+              "location": "cypress/e2e/step_definitions/ChargePointAPI.js:21"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 16000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 45,
+            "name": "I Send DELETE request to \"/charge-point/\" to specific id \"5378643\"",
             "match": {
               "location": "cypress/e2e/step_definitions/ChargePointAPI.js:73"
             },
@@ -950,56 +1000,6 @@
       },
       {
         "description": "",
-        "id": "charge-point-api;050-verify-the-delete-response-for-serial-number",
-        "keyword": "Scenario Outline",
-        "line": 51,
-        "name": "050 Verify the DELETE response for Serial Number",
-        "steps": [
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 44,
-            "name": "I navigate the API Path \"/charge-point\"",
-            "match": {
-              "location": "cypress/e2e/step_definitions/ChargePointAPI.js:21"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 18000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 45,
-            "name": "I Send DELETE request to \"/charge-point/\" to specific id \"5378643\"",
-            "match": {
-              "location": "cypress/e2e/step_definitions/ChargePointAPI.js:73"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 16000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 46,
-            "name": "The DELETE response status should be 204",
-            "match": {
-              "location": "cypress/e2e/step_definitions/ChargePointAPI.js:156"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 12000000
-            }
-          }
-        ],
-        "tags": [],
-        "type": "scenario"
-      },
-      {
-        "description": "",
         "id": "charge-point-api;verify-serial-numbers-are-not-appear-(web-testing)",
         "keyword": "Scenario Outline",
         "line": 59,
@@ -1015,7 +1015,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 45000000
+              "duration": 40000000
             }
           },
           {
@@ -1028,7 +1028,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 19000000
+              "duration": 12000000
             }
           },
           {
@@ -1041,7 +1041,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 8000000
+              "duration": 9000000
             }
           }
         ],
@@ -1065,7 +1065,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 42000000
+              "duration": 44000000
             }
           },
           {
@@ -1078,7 +1078,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 13000000
+              "duration": 11000000
             }
           },
           {
@@ -1091,7 +1091,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 8000000
+              "duration": 10000000
             }
           }
         ],
