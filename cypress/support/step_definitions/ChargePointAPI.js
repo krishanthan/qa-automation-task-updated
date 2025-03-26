@@ -151,12 +151,6 @@ Then("the invalid POST response status should be {int}", (StatusCode) => {
 
 })
 
-Then("The Invalid response not contain the following details", () => {
-
-    cy.get("@InvalidPostRes").then((invalidPostResponse) => {
-        expect(invalidPostResponse.body).to.have.property("serialNumberdsadsad", "PVR-039-2910-invalid")
-    })
-})
 
 
 Then("The DELETE response status should be {int}", function (StatusCode) {
